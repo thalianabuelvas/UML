@@ -24,7 +24,7 @@ public class Vuelo{
         this.capacidadMaxima = capacidadMaxima;
         // El vuelo crea sus propios asientos - composicion
         asientos = new Asiento[capacidadMaxima];
-        for (int i = 0, i < capacidadMaxima; i++){
+        for (int i = 0; i < capacidadMaxima; i++){
             asientos[i] = new Asiento("A" + (i + 1)); 
         }
     }
@@ -67,7 +67,19 @@ public class Vuelo{
                 return;
             }
         }
+        System.out.println("Asiento " + codigoAsiento + " no encontrado en el vuelo " + numero + ".");
 
+    }
+
+    // Busca un asiento por codigo y lo libera
+    public void desembarcar(String codigoAsiento){
+        for (Asiento a : asientos){
+            if (a.getCodigo().equals(codigoAsiento)){
+                a.liberar();
+                return;
+            }
+        }
+        Sytem.out.println("Asiento " + codigoAsiento + " no encontrado en vuelo " + numero + ".");
     }
 
 
